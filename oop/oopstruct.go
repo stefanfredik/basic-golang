@@ -13,6 +13,5 @@ func (p Person) Greet() {
 
 func main() {
 	person1 := Person{Nama: "Fredik", Age: 20}
-
 	person1.Greet()
 }
