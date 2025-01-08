@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"sync"
 	"time"
 )
 
@@ -13,9 +14,15 @@ func printNumbers() {
 }
 
 func main() {
-	go printNumbers()
+	var wg sync.WaitGroup
+	wg.Add(1)
+	go func() {
+		defer wg.Done()
+		printNumbers()
+	}()
 
-	time.Sleep(6 * time.Second)
+	fmt.Println("Execution!")
+	wg.Wait()
 
 	fmt.Println("Main function done")
 

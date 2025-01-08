@@ -8,5 +8,9 @@ func changeValue(val *int) {
 
 func main() {
 	x := 10
-	fmt.Println()
+	fmt.Println("Nilai x : ", x)
+
+	changeValue(&x)
+
+	fmt.Println("Nilai x : ", x)
 }
